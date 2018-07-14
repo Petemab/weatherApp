@@ -1,10 +1,14 @@
 import React from 'react';
+import Map from '../common/Map';
 
 
 const Home = () => {
   return (
     <div>
-      <h1>This will be an amazing Home Page</h1>
+      <h1>Check Your Weather Below</h1>
+      <form>
+        <Map className="map"/>
+      </form>
     </div>
 
 
