@@ -10,7 +10,7 @@ function forecast(req, res, next) {
     },
     json: true
   })
-    .then(response => res.json(response.currently))
+    .then(response => res.json(response))
     .catch(next);
 
 }

@@ -23,10 +23,18 @@ class Home extends React.Component{
       console.log(this.state.address, this.state.location.lat, this.state.location.lng));
   }
 
+
+
+
   weatherSearch = (e) => {
     e.preventDefault();
     axios
-      .get(`https://api.darksky.net/forecast/dff68e5bd33204f9893ceee31d4ce1cb/${this.state.location.lat},${this.state.location.lng}`)
+      .get('/api/forecast', {
+        params: {
+          lat: this.state.location.lat,
+          lng: this.state.location.lng
+        }
+      })
       .then(res => this.setState({ forecast: res.data }, () =>
         console.log(this.state)));
   }
@@ -49,7 +57,7 @@ class Home extends React.Component{
         {this.state.forecast &&
           <div>
             <h1>You searched for the weather in {address}</h1>
-            <p>The weather is currently {forecast.currently.summary}</p>
+            <p>The weather is currently <strong>{forecast.currently.summary.toLowerCase()}</strong> and the temperature is <strong>{forecast.temperature}℃</strong></p>
             <p>Looking ahead to rest of the week: {forecast.daily.summary}</p>
             <Map className="map" center={this.state.location}/>
           </div>
