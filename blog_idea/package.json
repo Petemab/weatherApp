@@ -1,0 +1,22 @@
+{
+  "name": "blog_idea",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "start:client": "webpack-dev-server",
+    "start:server": "nodemon",
+    "test:client": "nyc mocha test/client/**/*_spec.js --require test/client/helper --recursive --exit",
+    "test:server": "nyc mocha test/server/**/*_spec.js --require test/server/helper --recursive --exit",
+    "build": "webpack",
+    "start": "yarn build && node index",
+    "seed": "node db/seeds"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "bluebird": "^3.5.1",
+    "express": "^4.16.3",
+    "mongoose": "^5.2.8",
+    "webpack": "^4.16.5",
+    "webpack-dev-server": "^3.1.5"
+  }
+}
